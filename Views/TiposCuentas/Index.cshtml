@@ -1,0 +1,96 @@
+﻿@model IEnumerable<TipoCuenta>
+@{
+    ViewData["Title"] = "Tipos Cuentas";
+}
+
+<h1 class="typewriter">Tipos Cuentas ADE..</h1>
+<h5>El tipo de cuenta se refiere a cómo podemos agrupar cuentas. Ejemplos: Préstamos, tarjetas de crédito, etc.</h5>
+<a asp-action="Crear" class="btn btn-primary mb-3">Crear nuevo</a>
+
+<div class="container">
+    <input type="text" id="searchInput" name="text" class="input" required="" placeholder="Buscar cuenta...">
+    <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+            <title>Search</title>
+            <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path>
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path>
+        </svg>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr style="background-color: lightblue; font-size: 26px">
+            <th>Acciones</th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody id="reordenable">
+        @foreach (var tipoCuenta in Model)
+        {
+            <tr>
+                <td>
+                    <input type="hidden" value="@tipoCuenta.Id" class="ids" />
+                    <a style="text-decoration:none; color:black" asp-action="Editar" asp-route-id="@tipoCuenta.Id">Editar
+                        <i class="bi-pencil" style="color:blue"></i>
+                    </a>
+                    <a style="text-decoration:none; color:black" asp-action="Borrar" asp-route-id="@tipoCuenta.Id">
+                        Borrar
+                        <i class="bi-trash" style="color:red"></i>
+                    </a>
+                </td>
+                <td class="nombreCuenta">
+                    @tipoCuenta.Nombre
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            var searchTerm = this.value.toLowerCase();
+            var rows = document.querySelectorAll('#reordenable tr');
+
+            rows.forEach(function(row) {
+                var nombreCuenta = row.querySelector('.nombreCuenta').textContent.toLowerCase();
+                if (nombreCuenta.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        const urlOrdenar = '@Url.Action("Ordenar","TiposCuentas")';
+        $(function () {
+            $('#reordenable').sortable({
+                stop: async function (e, ui) {
+                    await actualizarOrdenes();
+                }
+            });
+            async function actualizarOrdenes() {
+                const ids = obtenerIdsDeElementos();
+                await enviarIdsAlBackEnd(ids);
+            }
+            function obtenerIdsDeElementos() {
+                const ids = $(".ids").map(function () {
+                    return $(this).val();
+                }).get();
+                return ids;
+            }
+            async function enviarIdsAlBackEnd(ids) {
+                var data = JSON.stringify(ids);
+                await fetch(urlOrdenar, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+            }
+        });
+    </script>
+}
+
