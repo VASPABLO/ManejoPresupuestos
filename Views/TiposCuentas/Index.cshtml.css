@@ -1,0 +1,197 @@
+﻿
+#input {
+    padding: 10px;
+    height: 40px;
+    border: 2px solid #0B2447;
+    border-top: none;
+    border-bottom: none;
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+    box-shadow: 7px 7px 0px 0px #0B2447;
+    transition: all 0.5s;
+}
+
+    #input:focus {
+        box-shadow: none;
+        transition: all 0.5s;
+    }
+
+.label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #0B2447;
+    transition: all 0.5s;
+    transform: scale(0);
+    z-index: -1;
+}
+
+#input-container .topline {
+    position: absolute;
+    content: "";
+    background-color: #0B2447;
+    width: 0%;
+    height: 2px;
+    right: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+
+#input-container input[type="text"]:focus ~ .topline {
+    width: 35%;
+    transition: all 0.5s;
+}
+
+#input-container .underline {
+    position: absolute;
+    content: "";
+    background-color: #0B2447;
+    width: 0%;
+    height: 2px;
+    right: 0;
+    bottom: 0;
+    transition: all 0.5s;
+}
+
+#input-container input[type="text"]:focus ~ .underline {
+    width: 100%;
+    transition: all 0.5s;
+}
+
+#input-container input[type="text"]:focus ~ .label {
+    top: -10px;
+    transform: scale(1);
+    transition: all 0.5s;
+}
+
+.typewriter {
+    font-family: 'Courier New', Courier, monospace; /* Fuente de tipo monoespaciada */
+    overflow: hidden; /* Ocultar el desbordamiento del texto */
+    border-right: .8px solid orange; /* Simular el cursor de la máquina de escribir */
+    white-space: nowrap; /* Evitar que el texto haga saltos de línea */
+    margin: 0 auto; /* Centrar el texto */
+    letter-spacing: .15em; /* Espaciado entre letras */
+    animation: typing 15s steps(30, end) infinite, blink-caret .55s step-end infinite;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: black;
+    }
+}
+
+/* Estilos para la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+    .table th, .table td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    .table thead {
+        background-color: lightblue;
+        font-size: 26px;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+/* Estilos para los enlaces de acción */
+.action-link {
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+}
+
+    .action-link i {
+        margin-left: 5px;
+    }
+
+    .action-link:hover i.bi-pencil {
+        color: blue;
+    }
+
+    .action-link:hover i.bi-trash {
+        color: red;
+    }
+
+/* Estilos para el buscador */
+
+.container {
+  position: relative;
+  --size-button: 40px;
+  color: white;
+}
+
+.input {
+  padding-left: var(--size-button);
+  height: var(--size-button);
+  font-size: 15px;
+  border: none;
+  color: black;
+  outline: none;
+  width: var(--size-button);
+  transition: all ease 0.3s;
+  box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
+  border-radius: 50px;
+  cursor: pointer;
+  margin:5px;
+}
+
+.input:focus,
+.input:not(:invalid) {
+  width: 200px;
+  cursor: text;
+  box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px #0e0e0e, inset -1.5px -1.5px 3px #5f5e5e;
+}
+
+.input:focus + .icon,
+.input:not(:invalid) + .icon {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.container .icon {
+  position: absolute;
+  width: var(--size-button);
+  height: var(--size-button);
+  top: 0;
+  left: 10px;
+  padding: 8px;
+  pointer-events: none;
+
+}
+
+.container .icon svg {
+  width: 100%;
+  height: 100%;
+  margin:6px;
+  color:black;
+}
+
+
+

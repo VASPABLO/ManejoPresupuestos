@@ -1,0 +1,71 @@
+﻿#reordenable tr{
+    cursor: move;
+}
+
+.contenedor-totales {
+    display: flex;
+    justify-content: space-around;
+    font-size: 26px;
+    text-align: center;
+}
+
+.activo {
+    color: blue;
+}
+
+.pasivo {
+    color: red;
+}
+
+.acordeon-cuentas button{
+    color: black !important;
+    font-size: 20px;
+}
+
+/*
+    
+.contenedor-totales {
+    display: flex;
+    justify-content: space-around;
+    font-size: 26px;
+    text-align: center;
+    background-color: #f9f9f9; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px; 
+}
+
+
+.activo {
+    color: blue;
+    font-weight: bold; 
+
+    padding: 10px; 
+    border-radius: 5px; 
+}
+
+
+.pasivo {
+    color: red;
+    font-weight: bold; 
+
+    padding: 10px; 
+    border-radius: 5px; 
+}
+
+
+.acordeon-cuentas button {
+    color: black !important;
+    font-size: 20px;
+    border: 2px solid #ddd; 
+    padding: 10px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; 
+}
+
+    .acordeon-cuentas button:hover {
+        background-color: #e0e0e0; 
+        border-color: #ccc;
+    }
+*/
