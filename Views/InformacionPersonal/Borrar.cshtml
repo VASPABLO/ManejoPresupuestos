@@ -1,0 +1,29 @@
+﻿@model ManejoPresupuestos.Models.InformacionPersonal
+
+<h2>Borrar Información Personal</h2>
+
+<h3>¿Está seguro que desea borrar esta información del socio  @Model.Nombre?</h3>
+
+<div>
+    <h4>Información Personal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Nombre</dt>
+        <dd>@Model.Nombre</dd>
+        <dt>Primer Apellido</dt>
+        <dd>@Model.PrimerApellido</dd>
+        <dt>Segundo Apellido</dt>
+        <dd>@Model.SegundoApellido</dd>
+        <dt>Cedula</dt>
+        <dd>@Model.Cedula</dd>
+        <dt>Correo</dt>
+        <dd>@Model.Correo</dd>
+    </dl>
+
+    <form asp-action="BorrarInformacionPersonal" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Borrar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+

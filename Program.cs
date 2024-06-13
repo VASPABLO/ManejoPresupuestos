@@ -18,7 +18,11 @@ namespace ManejoPresupuestos
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddTransient<IServicioReportes, ServicioReportes>();
             builder.Services.AddAutoMapper(typeof(Program));
+            builder.Services.AddScoped<IRepositorioInformacionPersonal, RepositorioInformacionPersonal>();
           
+
+           
+
 
             var app = builder.Build();
 
