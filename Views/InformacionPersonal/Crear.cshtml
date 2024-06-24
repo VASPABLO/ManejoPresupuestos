@@ -1,6 +1,6 @@
 ﻿@model ManejoPresupuestos.Models.InformacionPersonal
 
-<h2>Crear Información Personal</h2>
+<h2>Crear nuevo Asociado</h2>
 
 <form asp-action="Crear" method="post">
     <div class="form-group">
@@ -28,6 +28,11 @@
         <input asp-for="Correo" class="form-control" />
         <span asp-validation-for="Correo" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button style="margin:10px" type="submit" class="btn btn-primary">Guardar</button>
+    <a class="btn btn-secondary" style="magin:10px" asp-action="Index">Cancelar</a>
 </form>
+
+@section scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
 

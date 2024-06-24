@@ -82,7 +82,7 @@ namespace ManejoPresupuestos.Servicios
         {
             ViewBag.mesAnterior = fechaInicio.AddMonths(-1).Month;
             ViewBag.añoAnterior = fechaInicio.AddMonths(-1).Year;
-            ViewBag.mesPosterior = fechaInicio.AddMonths(1).Year;
+            ViewBag.mesPosterior = fechaInicio.AddMonths(1).Month;
             ViewBag.añoPosterior = fechaInicio.AddMonths(1).Year;
             ViewBag.urlRetorno = httpContext.Request.Path + httpContext.Request.QueryString;
         }

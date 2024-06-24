@@ -1,52 +1,67 @@
-﻿@model IEnumerable<ManejoPresupuestos.Models.InformacionPersonal>
+﻿@model IEnumerable<TipoCuenta>
 
-<h2>Información Personal</h2>
+@{
 
-<form asp-action="Index" method="get" class="form-inline">
-    <div class="container">
-        <input type="text" id="searchInput" name="searchCedula" class="input" required="" placeholder="Buscar por cédula..." value="@ViewData["CurrentFilter"]">
-        <div class="icon">
-            <button type="submit" style="background: none; border: none; padding: 0;">
-                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" style="width: 24px; height: 24px;">
-                    <title>Search</title>
-                    <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path>
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path>
-                </svg>
-            </button>
-        </div>
-    </div>
-</form>
+    ViewData["Title"] = "Tipos Cuentas";
+}
 
-<p>
-    <a asp-action="Crear" class="btn btn-primary">Crear Nuevo</a>
-</p>
+<h1>Tipos Cuentas</h1>
+<h5>El tipo de cuenta se refiere a cómo podemos agrupar cuentas. Ejemplos: Préstamos, tarjetas de crédito, etc.</h5>
+<a asp-action="Crear" asp-controller="TiposCuentas" class="btn btn-primary mb-3">Crear nuevo</a>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Primer Apellido</th>
-            <th>Segundo Apellido</th>
-            <th>Cedula</th>
-            <th>Correo</th>
             <th>Acciones</th>
+            <th>Nombre</th>
         </tr>
     </thead>
-    <tbody>
-        @foreach (var item in Model)
+    <tbody id="reordenable">
+        @foreach (var tipoCuenta in Model)
         {
             <tr>
-                <td>@item.Nombre</td>
-                <td>@item.PrimerApellido</td>
-                <td>@item.SegundoApellido</td>
-                <td>@item.Cedula</td>
-                <td>@item.Correo</td>
                 <td>
-                    <a asp-action="Editar" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
-                    <a asp-action="Borrar" asp-route-id="@item.Id" class="btn btn-danger">Borrar</a>
+                    <input type="hidden" value="@tipoCuenta.Id" class="ids" />
+                    <a asp-action="Editar" asp-controller="TiposCuentas" asp-route-id="@(tipoCuenta.Id)" class="btn btn-primary">Editar</a>
+                    <a asp-action="Borrar" asp-controller="TiposCuentas" asp-route-id="@(tipoCuenta.Id)" class="btn btn-danger">Borrar</a>
+                </td>
+                <td>
+                    @tipoCuenta.Nombre
                 </td>
             </tr>
         }
     </tbody>
-</table>
 
+</table>
+@section Scripts{
+    <script>
+        const urlOrdenar = '@Url.Action("Ordenar","TiposCuentas")';
+        $(function () {
+            $('#reordenable').sortable({
+                stop: async function (e, ui) {
+                    await actualizarOrdenes();
+                }
+            });
+            async function actualizarOrdenes() {
+                const ids = obtenerIdsDeElementos();
+                await enviarIdsAlBackEnd(ids);
+            }
+            function obtenerIdsDeElementos() {
+                const ids = $(".ids").map(function () {
+                    return $(this).val();
+                }).get();
+                return ids;
+            }
+            async function enviarIdsAlBackEnd(ids) {
+                var data = JSON.stringify(ids);
+                await fetch(urlOrdenar, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+            }
+        })
+    </script>
+}
