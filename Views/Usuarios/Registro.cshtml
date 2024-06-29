@@ -1,0 +1,56 @@
+﻿@model RegistroViewModel
+
+@{
+    ViewBag.Title = "Registro";
+}
+
+<h1 class="text-center">Regístrate</h1>
+
+<div class="card mx-auto" style="max-width: 400px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); border-radius: 10px; margin: 50px auto; padding: 20px;">
+    <div class="card-body">
+        <form asp-action="Registro">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" autocomplete="off" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">Password</label>
+                <div class="input-group">
+                    <input asp-for="Password" id="password" type="password" class="form-control" />
+                    <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility()">
+                        <img id="toggle-icon" src="https://img.icons8.com/ios-glyphs/30/000000/visible.png" alt="Show/Hide Password" style="margin-left: 5px;" />
+                    </button>
+                </div>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary">Regístrate</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function togglePasswordVisibility() {
+        var passwordField = document.getElementById("password");
+        var toggleIcon = document.getElementById("toggle-icon");
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            toggleIcon.src = "https://img.icons8.com/ios-glyphs/30/000000/invisible.png";
+        } else {
+            passwordField.type = "password";
+            toggleIcon.src = "https://img.icons8.com/ios-glyphs/30/000000/visible.png";
+        }
+    }
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

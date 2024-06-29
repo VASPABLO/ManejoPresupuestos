@@ -18,7 +18,7 @@ namespace ManejoPresupuestos.Servicios
         private readonly string connectionString;
         public RepositorioCuentas(IConfiguration configuration)
         {
-            connectionString = configuration.GetConnectionString("DefaultConnection"); 
+            connectionString = configuration.GetConnectionString("DefaultConnection");
 
         }
 
