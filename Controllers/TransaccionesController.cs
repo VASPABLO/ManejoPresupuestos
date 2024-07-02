@@ -146,11 +146,11 @@ namespace ManejoPresupuestos.Controllers
         {
             var fechaInicio = new DateTime(año, mes, 1);
             var fechaFin = fechaInicio.AddMonths(1).AddDays(-1);
-            var usuario = servicioUsuarios.ObtenerUsuarioId();
+            var usuarioId = servicioUsuarios.ObtenerUsuarioId();
             var transacciones = await repositorioTransacciones.ObtenerPorUsuarioId
                 (new ParametroObtenerTransaccionesPorUsuario
             {
-                UsuarioId = usuario,
+                UsuarioId = usuarioId,
                 FechaFin = fechaFin,
                 FechaInicio = fechaInicio
             });

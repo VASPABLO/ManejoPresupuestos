@@ -18,6 +18,7 @@ namespace ManejoPresupuestos.Controllers
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
+      
         [AllowAnonymous]
         public IActionResult Registro()
         {
