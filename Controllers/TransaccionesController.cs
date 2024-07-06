@@ -204,7 +204,7 @@ namespace ManejoPresupuestos.Controllers
             });
             foreach(var transaccion in transacciones)
             {
-                dataTable.Rows.Add(transaccion, 
+                dataTable.Rows.Add(transaccion.FechaTransaccion, 
                     transaccion.Cuenta,
                     transaccion.Categoria, 
                     transaccion.Nota,

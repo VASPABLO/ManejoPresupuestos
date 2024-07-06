@@ -40,7 +40,8 @@ namespace ManejoPresupuestos
                 opciones.Password.RequireLowercase = false;
                 opciones.Password.RequireUppercase = false;
                 opciones.Password.RequireNonAlphanumeric = false;
-            }).AddErrorDescriber<MensajesDeErrorIdentity>();
+            }).AddErrorDescriber<MensajesDeErrorIdentity>()
+            .AddDefaultTokenProviders();
             builder.Services.AddScoped<IRepositorioInformacionPersonal, RepositorioInformacionPersonal>();
 
             builder.Services.AddAuthentication(options =>
@@ -53,7 +54,7 @@ namespace ManejoPresupuestos
                 opciones.LoginPath = "/usuarios/login";
             });
 
-
+            builder.Services.AddTransient<IServicioEmail, ServicioEmail>();
            
             var app = builder.Build();
 
