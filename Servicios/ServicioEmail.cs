@@ -4,7 +4,12 @@ using System.Net.Mail;
 
 namespace ManejoPresupuestos.Servicios
 {
-    public class ServicioEmail
+    public interface IServicioEmail
+    {
+        Task EnviarEmailCambioPassword(string receptor, string enlace);
+    }
+
+    public class ServicioEmail : IServicioEmail
     {
         private readonly IConfiguration configuration;
 

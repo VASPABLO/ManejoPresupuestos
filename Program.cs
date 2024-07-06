@@ -54,6 +54,8 @@ namespace ManejoPresupuestos
                 opciones.LoginPath = "/usuarios/login";
             });
 
+
+
             builder.Services.AddTransient<IServicioEmail, ServicioEmail>();
            
             var app = builder.Build();
