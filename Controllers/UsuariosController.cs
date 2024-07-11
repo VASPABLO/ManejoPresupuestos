@@ -133,5 +133,44 @@ namespace ManejoPresupuestos.Controllers
             return View();
                 
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult RecuperarPassword(string codigo = null)
+        {
+            if (codigo is null)
+            {
+                var mensaje = "Código no encontrado";
+                return RedirectToAction("OlvideMiPassword", new { mensaje });
+            }
+
+            var modelo = new RecuperarPasswordViewModel();
+            modelo.CodigoReseteo = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(codigo));
+            return View(modelo);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> RecuperarPassword(RecuperarPasswordViewModel modelo)
+        {
+            var usuario = await userManager.FindByEmailAsync(modelo.Email);
+
+            if (usuario is null)
+            {
+                return RedirectToAction("PasswordCambiado");
+            }
+
+            var resultados = await userManager.ResetPasswordAsync(usuario, modelo.CodigoReseteo,
+                modelo.Password);
+            return RedirectToAction("PasswordCambiado");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult PasswordCambiado()
+        {
+            return View();
+        }
     }
 }
+

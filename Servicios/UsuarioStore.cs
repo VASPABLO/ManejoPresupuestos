@@ -115,9 +115,10 @@ IUserPasswordStore<Usuario>
             throw new NotImplementedException();
         }
 
-        public Task<IdentityResult> UpdateAsync(Usuario user, CancellationToken cancellationToken)
+        public async Task<IdentityResult> UpdateAsync(Usuario user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            await repositorioUsuarios.Actualizar(user);
+            return IdentityResult.Success;
         }
 
 

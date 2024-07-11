@@ -20,14 +20,16 @@ namespace ManejoPresupuestos.Servicios
 
         public async Task EnviarEmailCambioPassword(string receptor, string enlace)
         {
-            var email = configuration.GetValue<string>("ConfiguracionesGmail:Email");
-            var password = configuration.GetValue<string>("ConfiguracionesGmail:Password");
-            var host = configuration.GetValue<string>("ConfiguracionesGmail:Host");
-            var puerto = configuration.GetValue<int>("ConfiguracionesGmail:Puerto");
+            var email = configuration.GetValue<string>("CONFIGURACIONES_GMAIL:EMAIL");
+            var password = configuration.GetValue<string>("CONFIGURACIONES_GMAIL:PASSWORD");
+            var host = configuration.GetValue<string>("CONFIGURACIONES_GMAIL:HOST");
+            var puerto = configuration.GetValue<int>("CONFIGURACIONES_GMAIL:PUERTO");
+
 
             var cliente = new SmtpClient(host, puerto);
             cliente.EnableSsl = true;
             cliente.UseDefaultCredentials = false;
+
             cliente.Credentials = new NetworkCredential(email, password);
 
             var emisor = email;
@@ -36,6 +38,7 @@ namespace ManejoPresupuestos.Servicios
             var contenidoHTML = $@"Saludos,
 Este mensaje le llega porque usted ha solicitado un cambio de contraseña. Si esta solicitud no fue realizada por ustes, puede ignorar este mensaje.
 Para cambiar su contraseña, haga click en el siguiente enlace:
+
 {enlace}
 
 Atentamente,
