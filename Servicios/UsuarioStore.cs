@@ -75,7 +75,7 @@ IUserPasswordStore<Usuario>
 
         public Task<string> GetUserNameAsync(Usuario user, CancellationToken cancellationToken)
         {
-            return Task.FromResult(user.Email);
+            return Task.FromResult(user.Email.Trim());
         }
 
         public Task<bool> HasPasswordAsync(Usuario user, CancellationToken cancellationToken)

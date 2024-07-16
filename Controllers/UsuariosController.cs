@@ -62,6 +62,8 @@ namespace ManejoPresupuestos.Controllers
 
         }
 
+       
+
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login()
@@ -171,6 +173,7 @@ namespace ManejoPresupuestos.Controllers
         {
             return View();
         }
+       
     }
 }
 
