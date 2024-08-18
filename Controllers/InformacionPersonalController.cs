@@ -1,10 +1,12 @@
 ﻿using ManejoPresupuestos.Models;
 using ManejoPresupuestos.Servicios;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace ManejoPresupuestos.Controllers
 {
+  
     public class InformacionPersonalController : Controller
     {
         private readonly IRepositorioInformacionPersonal repositorioInformacionPersonal;
@@ -16,7 +18,7 @@ namespace ManejoPresupuestos.Controllers
             this.repositorioInformacionPersonal = repositorioInformacionPersonal;
             this.servicioUsuarios = servicioUsuarios;
         }
-
+       
         public async Task<IActionResult> Index(string searchCedula)
         {
             var usuarioId = servicioUsuarios.ObtenerUsuarioId();
@@ -34,12 +36,12 @@ namespace ManejoPresupuestos.Controllers
 
             return View(informacionPersonal);
         }
-
+      
         public IActionResult Crear()
         {
             return View();
         }
-
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Crear(InformacionPersonal informacionPersonal)
         {

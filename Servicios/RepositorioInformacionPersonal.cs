@@ -1,6 +1,7 @@
 ﻿using ManejoPresupuestos.Models;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ManejoPresupuestos.Servicios
 {
@@ -13,6 +14,7 @@ namespace ManejoPresupuestos.Servicios
         Task<IEnumerable<InformacionPersonal>> Obtener(int usuarioId);
         Task<IEnumerable<InformacionPersonal>> BuscarPorCedula(int usuarioId, string cedula);
     }
+    [AllowAnonymous]
     public class RepositorioInformacionPersonal : IRepositorioInformacionPersonal
     {
         private readonly string connectionString;
@@ -21,7 +23,7 @@ namespace ManejoPresupuestos.Servicios
         {
             connectionString = configuration.GetConnectionString("DefaultConnection");
         }
-
+        [AllowAnonymous]
         public async Task Crear(InformacionPersonal informacionPersonal)
         {
             using var connection = new SqlConnection(connectionString);

@@ -7,7 +7,7 @@
 
 <h1>Tipos Cuentas</h1>
 <h5>El tipo de cuenta se refiere a cómo podemos agrupar cuentas. Ejemplos: Préstamos, tarjetas de crédito, etc.</h5>
-<a asp-action="Crear" asp-controller="TiposCuentas" class="btn btn-primary mb-3">Crear nuevo</a>
+<a asp-action="Crear" asp-controller="TiposCuentas" class="btn btn-primary mb-3"><i class="fa fa-user" aria-hidden="true"></i> Crear nuevo</a>
 
 <table class="table">
     <thead>
@@ -22,8 +22,8 @@
             <tr>
                 <td>
                     <input type="hidden" value="@tipoCuenta.Id" class="ids" />
-                    <a asp-action="Editar" asp-controller="TiposCuentas" asp-route-id="@(tipoCuenta.Id)" class="btn btn-primary">Editar</a>
-                    <a asp-action="Borrar" asp-controller="TiposCuentas" asp-route-id="@(tipoCuenta.Id)" class="btn btn-danger">Borrar</a>
+                    <a asp-action="Editar" asp-controller="TiposCuentas" asp-route-id="@(tipoCuenta.Id)" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i>Editar</a>
+                    <a asp-action="Borrar" asp-controller="TiposCuentas" asp-route-id="@(tipoCuenta.Id)" class="btn btn-danger"><i class="fa fa-eraser" aria-hidden="true"></i>Borrar</a>
                 </td>
                 <td>
                     @tipoCuenta.Nombre

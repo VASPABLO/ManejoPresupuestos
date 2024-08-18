@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ManejoPresupuestos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ManejoPresupuestos.styles.css" asp-append-version="true" />
@@ -16,6 +17,8 @@
 </head>
 <body>
     <header>
+
+      
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand"  asp-controller="Transacciones" asp-action="Index">ManejoPresupuestos</a>
@@ -26,25 +29,35 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Transacciones" asp-action="Index">Transacciones</a>
+                            <a class="nav-link "  asp-controller="Transacciones" asp-action="Index">Transacciones</a>
                         </li>
                           <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Cuentas" asp-action="Index">Cuentas</a>
+                            <a class="nav-link " asp-controller="Cuentas" asp-action="Index">Cuentas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="TiposCuentas" asp-action="Index">Tipos Cuentas</a>
+                            <a class="nav-link "  asp-controller="TiposCuentas" asp-action="Index">Tipos Cuentas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Categorias" asp-action="Index">Categorias</a>
+                            <a class="nav-link "  asp-controller="Categorias" asp-action="Index">Categorias</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="InformacionPersonal" asp-action="Index">Listado de socios</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Informacion ADE</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="InformacionPersonal" asp-action="Index">Listado de socios</a>
+                                <a class="dropdown-item" href="#">Sobre nosotros</a>
+                                <a class="dropdown-item" href="#">Directiva</a>
+                            </div>
                         </li>
                         
                     </ul>
                     <partial name="_LinksLogin"/>
                 </div>
             </div>
+
+            @* <form class="d-flex">
+                <input class="form-control me-sm-2" type="search" placeholder="Buscando...">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+            </form> *@
         </nav>
     </header>
     <div class="container">
