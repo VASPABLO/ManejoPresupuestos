@@ -9,20 +9,24 @@
             <span class="nav-link ">Hola, @User.Identity.Name </span>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-link">
             <form class="form-inline" asp-action="logout" asp-controller="usuarios">
-                <button type="submit" class="nav-link btn btn-link">Cerrar sesión</button>
+                <button type="submit" class="nav-link btn btn-secondary">
+                    <i class="bi bi-x-circle"></i> Cerrar
+                </button>
             </form>
         </li>
+
+
     }
 
     else
     {
         <li class="nav-item">
-            <a class="nav-link " asp-controller="usuarios" asp-action="Registro">Registrarse</a>
+            <a class="nav-item" asp-controller="usuarios" asp-action="Registro">Registrarse</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-controller="usuarios" asp-action="Login">Iniciar sesión</a>
+            <a class="nav-item" asp-controller="usuarios" asp-action="Login">Iniciar sesión</a>
         </li>
     }
 </ul>

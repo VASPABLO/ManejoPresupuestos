@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "Proyectos";
+}
+
+<nav custom-navbar class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-item" asp-controller="Principal" asp-action="Index">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item" asp-controller="Directiva" asp-action="Index">Directiva</a>
+            </li>
+          
+        </ul>
+    
+    </div>
+
+</nav>
+
+<div class="container">
+    <h1>Mis proyectos</h1>
+    <p>Aquí encontrarás todos los proyectos en los que trabajamos para el barrio.</p>
+</div>
+
+<div class="container">
+    <div class="custom-card-container">
+        <div class="card custom-card">
+            <img src="/Imagenes/descarga.png" class="card-img-top" alt="imagen proyecto" />
+            <div class="card-body">
+                <h5 class="card-title">Asfaltado</h5>
+                <p class="card-text">Año 2023</p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Visitar</a>
+            </div>
+        </div>
+        <!-- Repite lo mismo para las otras cartas -->
+        <div class="card custom-card">
+            <img src="/Imagenes/alcantarilla.jpg" class="card-img-top" alt="imagen proyecto" />
+            <div class="card-body">
+                <h5 class="card-title">Alcantarillado</h5>
+                <p class="card-text">Año 2023</p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Visitar</a>
+            </div>
+        </div>
+        <div class="card custom-card">
+            <img src="/Imagenes/descarga.png" class="card-img-top" alt="imagen proyecto" />
+            <div class="card-body">
+                <h5 class="card-title">Asfaltado</h5>
+                <p class="card-text">Año 2023</p>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer">Visitar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

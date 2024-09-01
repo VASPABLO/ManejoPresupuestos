@@ -5,7 +5,7 @@
 }
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-      
+
          
 
     </nav>
@@ -21,9 +21,9 @@
 
 <div class="card mx-auto" style="max-width: 400px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); border-radius: 10px;">
     <div class="card-body p-4">
-        <form asp-action="Login">
+        <form class="form" asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-
+            <p class="title">Login </p>
             <div class="form-group mb-3">
                 <label asp-for="Email" class="form-label"></label>
                 <input asp-for="Email" autocomplete="off" class="form-control" />
@@ -58,6 +58,12 @@
             <div class="d-grid mt-3 texr-center">
                 <a class="btn" asp-action="OlvideMiPassword">¿Olvidaste tu contraseña?</a>
             </div>
+
+
+            <div class="d-grid mt-4">
+                <a class="btn btn-secondary" asp-controller="Principal" asp-action="Index">Cancelar</a>
+            </div>
+            
         </form>
     </div>
 </div>

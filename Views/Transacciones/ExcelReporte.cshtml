@@ -14,29 +14,76 @@
 <h1>Exportar Transacciones a Excel</h1>
 
 <div class="mb-3">
-    <a asp-action="ExportarExcelPorMes" asp-route-mes="@mesActual" asp-route-año="@añoActual" 
-    class="btn btn-success">
+
+    <a style="--clr: #7808d0" class="button" asp-action="ExportarExcelPorMes" asp-route-mes="@mesActual" asp-route-año="@añoActual">
+        <span class="button__icon-wrapper">
+            <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+            </svg>
+
+            <svg class="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
+                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+            </svg>
+        </span>
         Exportar mes actual
-    </a> ~ @hoy.ToString("MMMM yyyy")
+    </a>~ @hoy.ToString("MMMM yyyy")
+   
 </div>
 
 <div class="mb-3">
-    <a asp-action="ExportarExcelPorMes" asp-route-mes="@mesAnterior" asp-route-año="@mesAnteriorAño" class="btn btn-success">
+
+    <a style="--clr: #7808d0" class="button" asp-action="ExportarExcelPorMes" asp-route-mes="@mesAnterior" asp-route-año="@mesAnteriorAño" >
+        <span class="button__icon-wrapper">
+            <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+            </svg>
+
+            <svg class="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
+                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+            </svg>
+        </span>
         Exportar mes anterior
     </a> ~ @haceUnMes.ToString("MMMM yyyy")
 </div>
 <div class="mb-3">
-    <a asp-action="ExportarExcelPorAño" asp-route-año="@añoActual" class="btn btn-success">
+    <a style="--clr: #7808d0" class="button" asp-action="ExportarExcelPorAño" asp-route-año="@añoActual">
+        <span class="button__icon-wrapper">
+            <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+            </svg>
+
+            <svg class="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
+                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+            </svg>
+        </span>
         Exportar año actual
     </a> ~ @añoActual.ToString()
 </div>
 <div class="mb-3">
-    <a asp-action="ExportarExcelPorAño" asp-route-año="@añoAnterior" class="btn btn-success">
+    <a style="--clr: #7808d0" class="button" asp-action="ExportarExcelPorAño" asp-route-año="@añoAnterior">
+        <span class="button__icon-wrapper">
+            <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+            </svg>
+
+            <svg class="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
+                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+            </svg>
+        </span>
         Exportar año anterior
-    </a> ~ @añoAnterior.ToString()
+    </a> ~ @añoAnterior.ToString() 
 </div>
 <div class="mb-3">
-    <a asp-action="ExportarExcelTodo" class="btn btn-success">
+    <a style="--clr: #7808d0" class="button" asp-action="ExportarExcelTodo">
+        <span class="button__icon-wrapper">
+            <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+            </svg>
+
+            <svg class="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
+                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+            </svg>
+        </span>
         Exportar todo
-    </a>
+    </a> 
 </div>

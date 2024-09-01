@@ -51,7 +51,7 @@ namespace ManejoPresupuestos
                 options.DefaultSignOutScheme = IdentityConstants.ApplicationScheme;
             }).AddCookie(IdentityConstants.ApplicationScheme, opciones =>
             {
-                opciones.LoginPath = "/usuarios/login";
+                opciones.LoginPath = "/principal/index";
             });
 
 
@@ -79,7 +79,7 @@ namespace ManejoPresupuestos
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Transacciones}/{action=Index}/{id?}");
+                pattern: "{controller=principal}/{action=Index}/{id?}");
 
             app.Run();
         }
