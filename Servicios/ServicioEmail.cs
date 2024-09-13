@@ -20,10 +20,10 @@ namespace ManejoPresupuestos.Servicios
 
         public async Task EnviarEmailCambioPassword(string receptor, string enlace)
         {
-            var email = configuration.GetValue<string>("CONFIGURACIONES_GMAIL:EMAIL");
-            var password = configuration.GetValue<string>("CONFIGURACIONES_GMAIL:PASSWORD");
-            var host = configuration.GetValue<string>("CONFIGURACIONES_GMAIL:HOST");
-            var puerto = configuration.GetValue<int>("CONFIGURACIONES_GMAIL:PUERTO");
+            var email = configuration.GetValue<string>("CONFIGURACIONES_HOTMAIL:EMAIL");
+            var password = configuration.GetValue<string>("CONFIGURACIONES_HOTMAIL:PASSWORD");
+            var host = configuration.GetValue<string>("CONFIGURACIONES_HOTMAIL:HOST");
+            var puerto = configuration.GetValue<int>("CONFIGURACIONES_HOTMAIL:PUERTO");
 
 
             var cliente = new SmtpClient(host, puerto);
